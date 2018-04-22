@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hydro Edit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="../libs/cx-css/cx-dark.css">
+    <link rel="stylesheet" href="../libs/cx-css/cx-colors2.css">
+    <link rel="stylesheet" href="../libs/cx-css/cx-colors.css">
+</head>
+<body class="cx-body-light">
+        <div id="container" style="width:100%;height:100%;"></div>
+</body>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+
+        // FileSystem
+        var fs = require('fs');
+        let dialog = electron.remote['dialog'];
+
+        var nodeRequire = global.require;
+    </script>
+    <script src="monaco-editor/min/vs/loader.js"></script>
+    <script>
+        var amdRequire = global.require;
+        global.require = nodeRequire;
+
+        let jq = require('jquery');
+
+        let file = "";
+
+        var path = require('path');
+        function uriFromPath(_path) {
+            var pathName = path.resolve(_path).replace(/\\/g, '/');
+            if (pathName.length > 0 && pathName.charAt(0) !== '/') {
+                pathName = '/' + pathName;
+            }
+            return encodeURI('file://' + pathName);
+        }
+        amdRequire.config({
+            baseUrl: uriFromPath(path.join(__dirname, 'monaco-editor/min'))
+        });
+        
+        self.module = undefined;
+       
+        self.process.browser = true;
+        amdRequire(['vs/editor/editor.main'], function() {
+            window.editor = monaco.editor.create(document.getElementById('container'), {
+                value: "",
+                language: 'plaintext',
+                lineNumbers: true,
+                scrollBeyondLastLine: false,
+                automaticLayout:true,
+                roundedSelection: true,
+                theme: "vs-dark",
+            });
+            editor.layout({ width: window.innerWidth, height: window.innerHeight });
+        });
+
+        window.addEventListener("resize", function(){
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            window.editor.layout({width: width, height:height});
+        });
+
+        // Create new File
+        ipcRenderer.on('file:new', function(e, item){
+            file = "";
+            window.editor.setValue("");
+        });
+
+        // Change Language
+        function setLanguage(lang)
+        {
+            monaco.editor.setModelLanguage(window.editor.getModel(), lang);
+        }
+
+        // Open existing File
+        ipcRenderer.on('file:open', function(e, item){
+            dialog.showOpenDialog({properties: ['openFile']},function (fileNames) {
+                if (fileNames === undefined) return
+                let fileName = fileNames[0];
+                file = fileName;
+                fs.readFile(fileName, 'utf-8', function (err, data) {
+                    window.editor.setValue(data);
+                    if(file.substr(-4) === ".php" ) {
+                        setLanguage("php");
+                    }
+                    else if(file.substr(-5) === ".json") {
+                        setLanguage("json");
+                    }
+                    else if(file.substr(-5) === ".html") {
+                        setLanguage("html");
+                    }
+                    else if(file.substr(-4) === ".htm") {
+                        setLanguage("html");
+                    }
+                    else if(file.substr(-4) === ".bat") {
+                        setLanguage("bat");
+                    }
+                    else if(file.substr(-4) === ".ini") {
+                        setLanguage("ini");
+                    }
+                    else if(file.substr(-4) === ".lua") {
+                        setLanguage("lua");
+                    }
+                    else if(file.substr(-4) === ".sql") {
+                        setLanguage("sql");
+                    }
+                    else if(file.substr(-4) === ".css") {
+                        setLanguage("css");
+                    }
+                    else if(file.substr(-4) === ".cpp") {
+                        setLanguage("cpp");
+                    }
+                    else if(file.substr(-3) === ".js") {
+                        setLanguage("javascript");
+                    }
+                    else if(file.substr(-3) === ".cs") {
+                        setLanguage("csharp");
+                    }
+                    else if(file.substr(-3) === ".fs") {
+                        setLanguage("fsharp");
+                    }
+                    else if(file.substr(-3) === ".vb") {
+                        setLanguage("vb");
+                    }
+                    else
+                    {
+                        setLanguage("plaintext");
+                    }
+                });
+            }); 
+        });
+
+        // Save in existing File
+        ipcRenderer.on('file:save', function(e, item){
+            if(file != "")
+            {
+                fs.writeFile(file, window.editor.getValue(), (err) => {
+                    if(err){
+                        dialog.showErrorBox("File Save","An error ocurred creating the file "+ err.message)
+                    }
+                });
+            }
+            else
+            {
+                dialog.showSaveDialog((fileName) => {
+                if (fileName === undefined){
+                    dialog.showErrorBox("File Save","File not saved");
+                    return;
+                }
+                file = fileName; // Remember the File Name
+            
+                // fileName is a string that contains the path and filename created in the save file dialog.  
+                fs.writeFile(fileName, window.editor.getValue(), (err) => {
+                    if(err){
+                        dialog.showErrorBox("File Save","An error ocurred creating the file "+ err.message)
+                    }
+                });
+            }); 
+            }
+        });
+
+        // Save in new File
+        ipcRenderer.on('file:save_as', function(e, item){
+            dialog.showSaveDialog((fileName) => {
+                if (fileName === undefined){
+                    dialog.showErrorBox("File Save","File not saved");
+                    return;
+                }
+            
+                // fileName is a string that contains the path and filename created in the save file dialog.  
+                fs.writeFile(fileName, window.editor.getValue(), (err) => {
+                    if(err){
+                        dialog.showErrorBox("File Save","An error ocurred creating the file "+ err.message)
+                    }
+                });
+            }); 
+        });
+
+        // Changing Language
+        ipcRenderer.on('lang:html', function(e, item){
+            setLanguage("html");
+        });
+        ipcRenderer.on('lang:php', function(e, item){
+            setLanguage("php");
+        });
+        ipcRenderer.on('lang:js', function(e, item){
+            setLanguage("javascript");
+        });
+        ipcRenderer.on('lang:cs', function(e, item){
+            setLanguage("csharp");
+        });
+        ipcRenderer.on('lang:json', function(e, item){
+            setLanguage("json");
+        });
+        ipcRenderer.on('lang:bat', function(e, item){
+            setLanguage("bat");
+        });
+        ipcRenderer.on('lang:cpp', function(e, item){
+            setLanguage("cpp");
+        });
+        ipcRenderer.on('lang:fs', function(e, item){
+            setLanguage("fsharp");
+        });
+        ipcRenderer.on('lang:ini', function(e, item){
+            setLanguage("ini");
+        });
+        ipcRenderer.on('lang:lua', function(e, item){
+            setLanguage("lua");
+        });
+        ipcRenderer.on('lang:python', function(e, item){
+            setLanguage("python");
+        });
+        ipcRenderer.on('lang:sql', function(e, item){
+            setLanguage("sql");
+        });
+        ipcRenderer.on('lang:vb', function(e, item){
+            setLanguage("vb");
+        });
+        ipcRenderer.on('lang:css', function(e, item){
+            setLanguage("css");
+        });
+    </script>
+</html>

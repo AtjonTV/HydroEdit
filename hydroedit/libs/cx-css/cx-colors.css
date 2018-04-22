@@ -1,0 +1,433 @@
+/*
+ * Style:   CX-Color Pack 1
+ * Author:  AtjonTV
+ * Version: 1.0.0
+ * Date:    30.11.2017
+*/
+
+/*
+    Content:
+        Foreground Colors
+
+    https://www.w3schools.com/colors/colors_hex.asp -> up to deep pink
+*/
+
+/* Foreground Colors - BEGIN*/
+.cxc-fg-black{
+    color:black;
+}
+.cxc-fg-navy{
+    color:navy;
+}
+.cxc-fg-darkblue{
+    color:darkblue;
+}
+.cxc-fg-mediumblue{
+    color:mediumblue;
+}
+.cxc-fg-blue{
+    color: blue;
+}
+.cxc-fg-darkgreen{
+    color:darkgreen;
+}
+.cxc-fg-green{
+    color:green;
+}
+.cxc-fg-teak{
+    color:teal;
+}
+.cxc-fg-darkcyan{
+    color:darkcyan;
+}
+.cxc-fg-deepskyblue{
+    color:deepskyblue;
+}
+.cxc-fg-darkturquoise{
+    color:darkturquoise;
+}
+.cxc-fg-mediumspringgreen{
+    color:mediumspringgreen;
+}
+.cxc-fg-lime{
+    color:lime;
+}
+.cxc-fg-springgreen{
+    color:springgreen;
+}
+.cxc-fg-aqua{
+    color:aqua;
+}
+.cxc-fg-cyan{
+    color:cyan;
+}
+.cxc-fg-midnightblue{
+    color:midnightblue;
+}
+.cxc-fg-dodgerblue{
+    color:dodgerblue;
+}
+.cxc-fg-lightseagreen{
+    color:lightseagreen;
+}
+.cxc-fg-forestgreen{
+    color:forestgreen;
+}
+.cxc-fg-seagreen{
+    color:seagreen;
+}
+.cxc-fg-darkslategray{
+    color:darkslategray;
+}
+.cxc-fg-darkslategrey{
+    color:darkslategrey;
+}
+.cxc-fg-limegreen{
+    color:limegreen;
+}
+.cxc-fg-mediumseagreen{
+    color:mediumseagreen;
+}
+.cxc-fg-turquoise{
+    color:turquoise;
+}
+.cxc-fg-royalblue{
+    color:royalblue;
+}
+.cxc-fg-steelblue{
+    color:steelblue;
+}
+.cxc-fg-darkslateblue{
+    color:darkslateblue;
+}
+.cxc-fg-mediumturquoise{
+    color:mediumturquoise;
+}
+.cxc-fg-indigo{
+    color:indigo;
+}
+.cxc-fg-darkolivegreen{
+    color:darkolivegreen;
+}
+.cxc-fg-cadetblue{
+    color:cadetblue;
+}
+.cxc-fg-cornflowerblue{
+    color:cornflowerblue;
+}
+.cxc-fg-rebeccapurple{
+    color:rebeccapurple;
+}
+.cxc-fg-mediumaquamarine{
+    color:mediumaquamarine;
+}
+.cxc-fg-dimgray{
+    color:dimgray;
+}
+.cxc-fg-dimgrey{
+    color:dimgrey;
+}
+.cxc-fg-slateblue{
+    color:slateblue;
+}
+.cxc-fg-olivedrap{
+    color:olivedrab;
+}
+.cxc-fg-slategray{
+    color:slategray;
+}
+.cxc-fg-slategrey{
+    color:slategrey;
+}
+.cxc-fg-lightslategray{
+    color:lightslategray;
+}
+.cxc-fg-lightslategrey{
+    color:lightslategrey;
+}
+.cxc-fg-mediumslateblue{
+    color:mediumslateblue;
+}
+.cxc-fg-lawngreen{
+    color:lawngreen;
+}
+.cxc-fg-chartreuse{
+    color:chartreuse;
+}
+.cxc-fg-aquamarine{
+    color:aquamarine;
+}
+.cxc-fg-maroon{
+    color:maroon;
+}
+.cxc-fg-purple{
+    color:purple;
+}
+.cxc-fg-olive{
+    color:olive;
+}
+.cxc-fg-gray{
+    color:gray;
+}
+.cxc-fg-grey{
+    color:grey;
+}
+.cxc-fg-skyblue{
+    color:skyblue;
+}
+.cxc-fg-lightskyblue{
+    color:lightskyblue;
+}
+.cxc-fg-blueviolet{
+    color:blueviolet;
+}
+.cxc-fg-darkred{
+    color:darkred;
+}
+.cxc-fg-darkmagenta{
+    color:darkmagenta;
+}
+.cxc-fg-saddlebrown{
+    color:saddlebrown;
+}
+.cxc-fg-darkseagreen{
+    color:darkseagreen;
+}
+.cxc-fg-lightgreen{
+    color:lightgreen;
+}
+.cxc-fg-mediumpurple{
+    color:mediumpurple;
+}
+.cxc-fg-darkviolet{
+    color:darkviolet;
+}
+.cxc-fg-palegreen{
+    color:palegreen;
+}
+.cxc-fg-darkorchid{
+    color:darkorchid;
+}
+.cxc-fg-yellowgreen{
+    color:yellowgreen;
+}
+.cxc-fg-sienna{
+    color:sienna;
+}
+.cxc-fg-brown{
+    color:brown;
+}
+.cxc-fg-darkgray{
+    color:darkgray;
+}
+.cxc-fg-darkgrey{
+    color:darkgrey;
+}
+.cxc-fg-lightblue{
+    color:lightblue;
+}
+.cxc-fg-greenyellow{
+    color:greenyellow;
+}
+.cxc-fg-paleturquoise{
+    color:paleturquoise;
+}
+.cxc-fg-lightsteelblue{
+    color:lightsteelblue;
+}
+.cxc-fg-powderblue{
+    color:powderblue;
+}
+.cxc-fg-firebrick{
+    color:firebrick;
+}
+.cxc-fg-darkgoldernrod{
+    color:darkgoldenrod;
+}
+.cxc-fg-mediumorchid{
+    color:mediumorchid;
+}
+.cxc-fg-rosybrown{
+    color:rosybrown;
+}
+.cxc-fg-darkkhaki{
+    color:darkkhaki;
+}
+.cxc-fg-silver{
+    color:silver;
+}
+.cxc-fg-mediumvioletred{
+    color:mediumvioletred;
+}
+.cxc-fg-indianred{
+    color:indianred;
+}
+.cxc-fg-peru{
+    color:peru;
+}
+.cxc-fg-chocolate{
+    color:chocolate;
+}
+.cxc-fg-tan{
+    color:tan;
+}
+.cxc-fg-lightgray{
+    color:lightgray;
+}
+.cxc-fg-lightgrey{
+    color:lightgrey;
+}
+.cxc-fg-thistle{
+    color:thistle;
+}
+.cxc-fg-orchid{
+    color:orchid;
+}
+.cxc-fg-goldenrod{
+    color:goldenrod;
+}
+.cxc-fg-palegoldenrod{
+    color:palegoldenrod;
+}
+.cxc-fg-lightcoral{
+    color:lightcoral;
+}
+.cxc-fg-khaki{
+    color:khaki;
+}
+.cxc-fg-aliceblue{
+    color:aliceblue;
+}
+.cxc-fg-honeydew{
+    color:honeydew;
+}
+.cxc-fg-azure{
+    color:azure;
+}
+.cxc-fg-sandybrown{
+    color:sandybrown;
+}
+.cxc-fg-wheat{
+    color:wheat;
+}
+.cxc-fg-beige{
+    color:beige;
+}
+.cxc-fg-whitesmoke{
+    color:whitesmoke;
+}
+.cxc-fg-mintcream{
+    color:mintcream;
+}
+.cxc-fg-ghostwhite{
+    color:ghostwhite;
+}
+.cxc-fg-salmon{
+    color:salmon;
+}
+.cxc-fg-amtiquewhite{
+    color:antiquewhite;
+}
+.cxc-fg-linen{
+    color:linen;
+}
+.cxc-fg-lightgoldenrodyellow{
+    color:lightgoldenrodyellow;
+}
+.cxc-fg-oldlace{
+    color:oldlace;
+}
+.cxc-fg-red{
+    color:red;
+}
+.cxc-fg-fuchsia{
+    color:fuchsia;
+}
+.cxc-fg-magenta{
+    color:magenta;
+}
+.cxc-fg-deeppink{
+    color:deeppink;
+}
+.cxc-fg-orangered{
+    color:orangered;
+}
+.cxc-fg-tomato{
+    color:tomato;
+}
+.cxc-fg-hotpink{
+    color:hotpink;
+}
+.cxc-fg-coral{
+    color:coral;
+}
+.cxc-fg-darkorange{
+    color:darkorange;
+}
+.cxc-fg-lightsalmon{
+    color:lightsalmon;
+}
+.cxc-fg-orange{
+    color:orange;
+}
+.cxc-fg-lightpink{
+    color:lightpink;
+}
+.cxc-fg-pink{
+    color:pink;
+}
+.cxc-fg-gold{
+    color:gold;
+}
+.cxc-fg-peachpuff{
+    color:peachpuff;
+}
+.cxc-fg-navajowhite{
+    color:navajowhite;
+}
+.cxc-fg-moccasin{
+    color:moccasin;
+}
+.cxc-fg-bisque{
+    color:bisque;
+}
+.cxc-fg-mistyrose{
+    color:mistyrose;
+}
+.cxc-fg-blanchedalmond{
+    color:blanchedalmond;
+}
+.cxc-fg-papyawhip{
+    color:papayawhip;
+}
+.cxc-fg-lavenderblush{
+    color:lavenderblush;
+}
+.cxc-fg-seashell{
+    color:seashell;
+}
+.cxc-fg-cornsilk{
+    color:cornsilk;
+}
+.cxc-fg-lemonchiffon{
+    color:lemonchiffon;
+}
+.cxc-fg-floralwhite{
+    color:floralwhite;
+}
+.cxc-fg-snow{
+    color:snow;
+}
+.cxc-fg-yellow{
+    color:yellow;
+}
+.cxc-fg-lightyellow{
+    color:lightyellow;
+}
+.cxc-fg-ivory{
+    color:ivory;
+}
+.cxc-fg-white{
+    color:white;
+}
+/* Foreground Colors - END*/

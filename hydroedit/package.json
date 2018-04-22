@@ -1,0 +1,49 @@
+{
+  "name": "hydroedit",
+  "version": "1.0.0-alpha.7",
+  "description": "This is a Simple Crossplattform Text Editor",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron .",
+    "start": "electron .",
+    "pkg-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "pkg-win": "electron-packager . hydroedit --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"HydroEdit\"",
+    "pkg-lin": "electron-packager . hydroedit --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds"
+  },
+  "keywords": [
+    "editor"
+  ],
+  "author": {
+    "name": "AtjonTV (Thomas Obernosterer)",
+    "email": "admin.atjontv@atvg-studios.at",
+    "url": "http://atvg-studios.at"
+  },
+  "license": "SEE LICENSE IN 'LICENSE'",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.atvg-studios.at/root/HydroCode"
+  },
+  "bugs": {
+    "url": "http://gitlab.atvg-studios.at/root/HydroCode/issues",
+    "email": "admin.atjontv@atvg-studios.at"
+  },
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "ia32",
+    "!arm",
+    "!mips"
+  ],
+  "dependencies": {
+    "electron": "^1.7.9",
+    "electron-packager": "^10.1.0",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "electron-package": "^0.1.0"
+  }
+}

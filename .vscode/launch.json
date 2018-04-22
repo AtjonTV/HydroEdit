@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/hydroedit",
+            "name": "HydroEdit-Linux",
+            "runtimeExecutable": "${workspaceFolder}/hydroedit/node_modules/.bin/electron",
+            "windows": {
+                    "runtimeExecutable": "${workspaceRoot}/hydroedit/node_modules/.bin/electron.cmd"
+            },
+            "program": "${workspaceFolder}/hydroedit/main.js",
+            "protocol": "inspector"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/hydroedit-win",
+            "name": "HydroEdit-Windows",
+            "runtimeExecutable": "${workspaceFolder}/hydroedit-win/node_modules/.bin/electron",
+            "windows": {
+                    "runtimeExecutable": "${workspaceRoot}/hydroedit-win/node_modules/.bin/electron.cmd"
+            },
+            "program": "${workspaceFolder}/hydroedit-win/main.js",
+            "protocol": "inspector"
+        }
+    ]
+}
