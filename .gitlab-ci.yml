@@ -1,0 +1,56 @@
+image: node:latest
+
+stages:
+- build
+- test
+- deploy
+
+cache:
+  paths:
+  - hydroedit/node_modules/
+
+test:
+  stage: test
+  script:
+   - cd hydroedit/
+   - npm install
+   - npm run test
+   
+build:linux:
+  stage: build
+  script:
+   - cd hydroedit/
+   - npm install
+   - npm run pkg-lin
+  artifacts:
+    paths:
+      - release-builds/hydroedit-
+      
+build:nt:
+  stage: build
+  script:
+   - cd hydroedit/
+   - npm install
+   - npm run pkg-win
+  artifacts:
+    paths:
+      - release-builds/hydroedit-win32-ia32
+      
+build:xnu:
+  stage: build
+  script:
+   - cd hydroedit/
+   - npm install
+   - npm run pkg-mac
+  artifacts:
+    paths:
+      - release-builds/hydroedit-darwin-x64
+   
+publish:
+  stage: deploy
+  only:
+    - tags
+    - triggers
+  script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish
