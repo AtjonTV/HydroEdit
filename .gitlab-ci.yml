@@ -50,5 +50,6 @@ publish:
     - tags
     - triggers
   script:
+    - cd hydroedit/
     - echo $NPM_URI > .npmrc
     - npm publish
