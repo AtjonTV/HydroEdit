@@ -2,19 +2,11 @@ image: atjontv-docker-images.bintray.io/node:latest
 
 stages:
 - build
-- test
 - deploy
 
 cache:
   paths:
   - hydroedit/node_modules/
-
-test:
-  stage: test
-  script:
-   - cd hydroedit/
-   - npm install
-   - npm run test
    
 build:linux:
   stage: build
@@ -22,9 +14,10 @@ build:linux:
    - cd hydroedit/
    - npm install
    - npm run pkg-lin
+   - tar -cvfz ../hydroedit-linux.tgz hydroedit/release-builds/hydroedit-linux-x64
   artifacts:
     paths:
-      - release-builds/hydroedit-
+      - hydroedit-linux.tgz
       
 build:nt:
   stage: build
@@ -32,9 +25,10 @@ build:nt:
    - cd hydroedit/
    - npm install
    - npm run pkg-win
+   - tar -cvfz ../hydroedit-win32.tgz hydroedit/release-builds/hydroedit-win32-ia32
   artifacts:
     paths:
-      - release-builds/hydroedit-win32-ia32
+      - hydroedit-win32.tgz
       
 build:xnu:
   stage: build
@@ -42,9 +36,10 @@ build:xnu:
    - cd hydroedit/
    - npm install
    - npm run pkg-mac
+   - tar -cvfz ../hydroedit-darwin.tgz hydroedit/release-builds/hydroedit-darwin-x64
   artifacts:
     paths:
-      - release-builds/hydroedit-darwin-x64
+      - hydroedit-darwin.tgz
    
 publish:
   stage: deploy
