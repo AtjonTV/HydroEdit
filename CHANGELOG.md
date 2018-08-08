@@ -6,6 +6,9 @@
 
 ## Version 1.0.0-alpha
 
+### v1.0.0-alpha.8
++ Upgrade to Monaco 0.13.1 (0.13.2)
+
 ### v1.0.0-alpha.7
 + Save open file  
 + Save file as if no file open
