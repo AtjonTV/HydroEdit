@@ -20,7 +20,7 @@
 
         var nodeRequire = global.require;
     </script>
-    <script src="monaco-editor/min/vs/loader.js"></script>
+    <script src="monaco/src/loader.js"></script>
     <script>
         var amdRequire = global.require;
         global.require = nodeRequire;
@@ -38,13 +38,13 @@
             return encodeURI('file://' + pathName);
         }
         amdRequire.config({
-            baseUrl: uriFromPath(path.join(__dirname, 'monaco-editor/min'))
+            baseUrl: uriFromPath(path.join(__dirname, 'monaco/src'))
         });
         
         self.module = undefined;
-       
+
         self.process.browser = true;
-        amdRequire(['vs/editor/editor.main'], function() {
+        amdRequire(['editor/editor.main'], function() {
             window.editor = monaco.editor.create(document.getElementById('container'), {
                 value: "",
                 language: 'plaintext',

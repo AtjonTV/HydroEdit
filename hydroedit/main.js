@@ -7,7 +7,7 @@ const jQuery = require('jquery');
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 // Debugging Settings
-let debug = false; // true  = with debugging
+let debug = true; // true  = with debugging
 if(debug)
     process.env.NODE_ENV = 'developmet';
 else

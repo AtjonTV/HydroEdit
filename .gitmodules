@@ -1,0 +1,3 @@
+[submodule "hydroedit/windows/monaco"]
+	path = hydroedit/windows/monaco
+	url = git@gitlab.atvg-studios.at:third-party/Monaco.git
