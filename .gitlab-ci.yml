@@ -1,4 +1,4 @@
-image: node:9.3.0
+image: atjontv-docker-images.bintray.io/node:latest
 
 stages:
 - build
