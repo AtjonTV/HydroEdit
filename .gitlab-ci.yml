@@ -50,5 +50,5 @@ publish:
     - tags
     - triggers
   script:
-    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}">.npmrc
+    - echo $NPM_URI > .npmrc
     - npm publish
