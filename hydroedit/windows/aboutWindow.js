@@ -53,5 +53,5 @@ const mona = document.querySelector('#mona');
 mona.addEventListener('click', openMonaco);
 function openMonaco()
 {
-    shell.openExternal("https://github.com/Microsoft/monaco-editor/releases/tag/v0.12.0");
+    shell.openExternal("https://github.com/Microsoft/monaco-editor/releases/tag/v0.13.1");
 }

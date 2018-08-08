@@ -7,7 +7,7 @@ const jQuery = require('jquery');
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 // Debugging Settings
-let debug = true; // true  = with debugging
+let debug = false; // true  = with debugging
 if(debug)
     process.env.NODE_ENV = 'developmet';
 else
@@ -83,7 +83,12 @@ function createAboutWindow()
         }]));
     }
     else{
-        aboutWindow.setMenu(null);
+        aboutWindow.setMenu(Menu.buildFromTemplate([{
+                role: 'window',
+                submenu: [
+                    {role:'reload'}
+                ]
+            }]));
     }
 }
 
@@ -171,7 +176,12 @@ function createUpdateWindow()
         }]));
     }
     else{
-        updateWindow.setMenu(null);
+        updateWindow.setMenu(Menu.buildFromTemplate([{
+            role: 'window',
+            submenu: [
+                {role:'reload'}
+            ]
+        }]));
     }
 }
 
@@ -235,6 +245,12 @@ const mainMenuTemplate = [
                     mainWindow.webContents.send('lang:bat');
                 }
             },
+            {
+                label:'Bash',
+                click(){
+                    mainWindow.webContents.send('lang:shell');
+                }
+            },
             {type: 'separator'},
             {
                 label:'C#',
@@ -269,6 +285,12 @@ const mainMenuTemplate = [
                 }
             },
             {type: 'separator'},
+            {
+                label:'Java',
+                click(){
+                    mainWindow.webContents.send('lang:java');
+                }
+            },
             {
                 label:'JavaScript',
                 click(){
@@ -308,11 +330,31 @@ const mainMenuTemplate = [
                     mainWindow.webContents.send('lang:sql');
                 }
             },
+            {
+                label:'Swift',
+                click(){
+                    mainWindow.webContents.send('lang:swift');
+                }
+            },
             {type: 'separator'},
             {
                 label:'Visual Basic',
                 click(){
                     mainWindow.webContents.send('lang:vb');
+                }
+            },
+            {type: 'separator'},
+            {
+                label:'Xml',
+                click(){
+                    mainWindow.webContents.send('lang:xml');
+                }
+            },
+            {type: 'separator'},
+            {
+                label:'Yaml/Yml',
+                click(){
+                    mainWindow.webContents.send('lang:yaml');
                 }
             }
         ]
@@ -321,7 +363,8 @@ const mainMenuTemplate = [
         role: 'window',
         submenu: [
             {role: 'minimize'},
-            {role: 'close'}
+            {role: 'close'},
+            {role:'reload'}
         ]
     },
     {
@@ -380,7 +423,8 @@ const licensesMenuTemplate = [
                 click(){
                     licensesWindow.webContents.goBack();
                 }
-            }
+            },
+            {role:'reload'}
         ]
     }
 ];
@@ -401,9 +445,6 @@ if(process.env.NODE_ENV !== 'production'){
                 click(item, focusedWindow){
                     focusedWindow.toggleDevTools();
                 }
-            },
-            {
-                role:'reload'
             }
         ]
     });

@@ -20,7 +20,7 @@
 
         var nodeRequire = global.require;
     </script>
-    <script src="monaco/src/loader.js"></script>
+    <script src="monaco/src/vs/loader.js"></script>
     <script>
         var amdRequire = global.require;
         global.require = nodeRequire;
@@ -40,11 +40,11 @@
         amdRequire.config({
             baseUrl: uriFromPath(path.join(__dirname, 'monaco/src'))
         });
-        
+
         self.module = undefined;
 
         self.process.browser = true;
-        amdRequire(['editor/editor.main'], function() {
+        amdRequire(['vs/editor/editor.main'], function() {
             window.editor = monaco.editor.create(document.getElementById('container'), {
                 value: "",
                 language: 'plaintext',
@@ -54,7 +54,7 @@
                 roundedSelection: true,
                 theme: "vs-dark",
             });
-            editor.layout({ width: window.innerWidth, height: window.innerHeight });
+            window.editor.layout({ width: window.innerWidth, height: window.innerHeight });
         });
 
         window.addEventListener("resize", function(){
@@ -124,6 +124,24 @@
                     }
                     else if(file.substr(-3) === ".vb") {
                         setLanguage("vb");
+                    }
+                    else if(file.substr(-5) === ".java") {
+                        setLanguage("java");
+                    }
+                    else if(file.substr(-6) === ".swift") {
+                        setLanguage("swift");
+                    }
+                    else if(file.substr(-3) === ".sh") {
+                        setLanguage("shell");
+                    }
+                    else if(file.substr(-4) === ".xml") {
+                        setLanguage("xml");
+                    }
+                    else if(file.substr(-5) === ".yaml") {
+                        setLanguage("yaml");
+                    }
+                    else if(file.substr(-4) === ".yml") {
+                        setLanguage("yaml");
                     }
                     else
                     {
@@ -221,6 +239,24 @@
         });
         ipcRenderer.on('lang:css', function(e, item){
             setLanguage("css");
+        });
+        ipcRenderer.on('lang:java', function(e, item){
+            setLanguage("java");
+        });
+        ipcRenderer.on('lang:swift', function(e, item){
+            setLanguage("swift");
+        });
+        ipcRenderer.on('lang:shell', function(e, item){
+            setLanguage("shell");
+        });
+        ipcRenderer.on('lang:yaml', function(e, item){
+            setLanguage("yaml");
+        });
+        ipcRenderer.on('lang:yml', function(e, item){
+            setLanguage("yaml");
+        });
+        ipcRenderer.on('lang:xml', function(e, item){
+            setLanguage("xml");
         });
     </script>
 </html>
