@@ -14,7 +14,8 @@ build:linux:
    - cd hydroedit/
    - npm install
    - npm run pkg-lin
-   - tar -cvfz ../hydroedit-linux.tgz hydroedit/release-builds/hydroedit-linux-x64
+   - tar -cvfz hydroedit-linux.tgz hydroedit/release-builds/hydroedit-linux-x64
+   - ls
   artifacts:
     paths:
       - hydroedit-linux.tgz
@@ -25,7 +26,8 @@ build:nt:
    - cd hydroedit/
    - npm install
    - npm run pkg-win
-   - tar -cvfz ../hydroedit-win32.tgz hydroedit/release-builds/hydroedit-win32-ia32
+   - tar -cvfz hydroedit-win32.tgz hydroedit/release-builds/hydroedit-win32-ia32
+   - ls
   artifacts:
     paths:
       - hydroedit-win32.tgz
@@ -36,7 +38,8 @@ build:xnu:
    - cd hydroedit/
    - npm install
    - npm run pkg-mac
-   - tar -cvfz ../hydroedit-darwin.tgz hydroedit/release-builds/hydroedit-darwin-x64
+   - tar -cvfz hydroedit-darwin.tgz hydroedit/release-builds/hydroedit-darwin-x64
+   - ls
   artifacts:
     paths:
       - hydroedit-darwin.tgz
